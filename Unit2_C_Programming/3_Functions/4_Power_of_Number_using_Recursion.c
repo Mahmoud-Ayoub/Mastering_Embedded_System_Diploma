@@ -1,6 +1,6 @@
 /*
  * 4_Power_of_Number_using_Recursion.c
- *      Author: Blu-Ray
+ *      Author: Mahmoud Ayoub
  */
 #include "stdio.h"
 int power (int base , int p) ;
