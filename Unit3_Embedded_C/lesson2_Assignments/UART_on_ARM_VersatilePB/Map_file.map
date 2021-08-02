@@ -1,0 +1,77 @@
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+Mem              0x00000000         0x04000000         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+                0x00010000                . = 0x10000
+
+.startup        0x00010000       0x10
+ startup.o(.text)
+ .text          0x00010000       0x10 startup.o
+                0x00010000                reset
+
+.text           0x00010010       0x74
+ *(.text)
+ .text          0x00010010       0x58 uart.o
+                0x00010010                Uart_Send_String
+ .text          0x00010068       0x1c app.o
+                0x00010068                main
+
+.glue_7         0x00010084        0x0
+ .glue_7        0x00010084        0x0 linker stubs
+
+.glue_7t        0x00010084        0x0
+ .glue_7t       0x00010084        0x0 linker stubs
+
+.vfp11_veneer   0x00010084        0x0
+ .vfp11_veneer  0x00010084        0x0 linker stubs
+
+.v4_bx          0x00010084        0x0
+ .v4_bx         0x00010084        0x0 linker stubs
+
+.iplt           0x00010084        0x0
+ .iplt          0x00010084        0x0 startup.o
+
+.rel.dyn        0x00010084        0x0
+ .rel.iplt      0x00010084        0x0 startup.o
+
+.data           0x00010084       0x32
+ *(.data)
+ .data          0x00010084        0x0 startup.o
+ .data          0x00010084        0x0 uart.o
+ .data          0x00010084       0x32 app.o
+                0x00010084                string_buffer
+
+.igot.plt       0x000100b8        0x0
+ .igot.plt      0x000100b8        0x0 startup.o
+
+.bss            0x000100b6        0x0
+ *(.bss)
+ .bss           0x000100b6        0x0 startup.o
+ .bss           0x000100b6        0x0 uart.o
+ .bss           0x000100b6        0x0 app.o
+                0x000110b6                . = (. + 0x1000)
+                0x000110b6                stack_top = .
+LOAD uart.o
+LOAD app.o
+LOAD startup.o
+OUTPUT(learn_in_depth.elf elf32-littlearm)
+LOAD linker stubs
+
+.ARM.attributes
+                0x00000000       0x28
+ .ARM.attributes
+                0x00000000       0x1c startup.o
+ .ARM.attributes
+                0x0000001c       0x2c uart.o
+ .ARM.attributes
+                0x00000048       0x2c app.o
+
+.comment        0x00000000       0x4d
+ .comment       0x00000000       0x4d uart.o
+                                 0x4e (size before relaxing)
+ .comment       0x0000004d       0x4e app.o
