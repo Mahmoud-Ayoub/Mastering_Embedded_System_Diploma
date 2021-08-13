@@ -1,0 +1,31 @@
+
+startup.o:
+         U _E_BSS
+         U _E_DATA
+         U _E_text
+         U _S_BSS
+         U _S_DATA
+0000009c T Bus_Fault_Handler
+00000000 R g_p_fn_Vectors
+         U main
+00000090 T MM_Fault_Handler
+00000084 T NMI_Handler
+00000000 T Reset_Handler
+00000000 b stack_top
+
+main.o:
+00000000 T main
+
+Toggle_LED_on_ARM_CortexM4.axf:
+20000400 B _E_BSS
+20000000 T _E_DATA
+0000014c T _E_text
+20000000 B _S_BSS
+20000000 T _S_DATA
+00000140 T Bus_Fault_Handler
+00000000 T g_p_fn_Vectors
+00000014 T main
+00000134 T MM_Fault_Handler
+00000128 T NMI_Handler
+000000a4 T Reset_Handler
+20000000 b stack_top
