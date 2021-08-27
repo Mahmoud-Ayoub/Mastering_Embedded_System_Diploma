@@ -79,7 +79,7 @@ void Add_Student_From_File (void) {
 	int no_of_lines = 2 ;
 	float GPA_float ;
 	char read_data [100] ;
-	char* tokens_arr[10] ;        // 2-D array to store every line in the info file
+	char* tokens_arr[10] ;        
 	char* token ;
 	int int_tokens [10] ;            // array of integers to store int values in data
 	char* pend ;
