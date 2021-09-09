@@ -40,7 +40,7 @@ void clock_init (void) {
 	 * APB1 	>> 4 MHz
 	 * APB2 	>> 2 MHz
 	 * AHB  	>> 8 MHz
-	 * SysClk   >> 8 MHz
+	 * SysClk   	>> 8 MHz
 	 *
 	 */
 	RCC->RCC_CFGR |= (0b101 << 11);

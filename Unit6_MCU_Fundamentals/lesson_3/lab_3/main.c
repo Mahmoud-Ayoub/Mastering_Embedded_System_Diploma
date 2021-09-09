@@ -40,7 +40,7 @@ void clock_init (void) {
 	 * APB1 	>> 16 MHz
 	 * APB2 	>> 8  MHz
 	 * AHB  	>> 32 MHz
-	 * SysClk   >> 32 MHz
+	 * SysClk  	>> 32 MHz
 	 *
 	 */
 
