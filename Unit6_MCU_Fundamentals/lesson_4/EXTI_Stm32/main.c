@@ -12,7 +12,7 @@
 #define GPIO_PA_CRH 	*((vuint32_t*)(0x40010800+0x04))
 #define GPIO_PA_ODR 	*((vuint32_t*)(0x40010800+0x0C))
 #define AFIO_EXTICR1 	*((vuint32_t*)(0x40010000+0x08))
-#define NVIC_ISER0		*((vuint32_t*)(0xE000E100))
+#define NVIC_ISER0	*((vuint32_t*)(0xE000E100))
 
 typedef struct {
 	vuint32_t RCC_CR ;
