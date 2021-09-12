@@ -8,27 +8,27 @@
 #include <util/delay.h>
 
 void LED_init (void) {
-	DIO_SetPinDirection(portD , 5 , OUTPUT) ;          // LED 1
-	DIO_SetPinDirection(portD , 6 , OUTPUT) ;		   // LED 2
-	DIO_SetPinDirection(portD , 7 , OUTPUT) ;		   // LED 3
+	DIO_SetPinDirection(portD , 5 , OUTPUT) ;		// LED 1
+	DIO_SetPinDirection(portD , 6 , OUTPUT) ;		// LED 2
+	DIO_SetPinDirection(portD , 7 , OUTPUT) ;		// LED 3
 	
-	DIO_SetPinValue(portD , 5 , LOW) ;                // OFF initially
+	DIO_SetPinValue(portD , 5 , LOW) ;                	// OFF initially
 	DIO_SetPinValue(portD , 6 , LOW) ;
 	DIO_SetPinValue(portD , 7 , LOW) ;	
 }
 void LEDs_OFF (void) {
-	DIO_SetPinValue(portD , 5 , LOW) ;                // OFF 
+	DIO_SetPinValue(portD , 5 , LOW) ;                	// OFF 
 	DIO_SetPinValue(portD , 6 , LOW) ;
 	DIO_SetPinValue(portD , 7 , LOW) ;
 }
 void Buzzer_init (void) {
-	DIO_SetPinDirection(portD , 4 , OUTPUT) ;          // buzzer
-	DIO_SetPinValue(portD , 4 , LOW) ;                 // OFF initially
+	DIO_SetPinDirection(portD , 4 , OUTPUT) ;          	// buzzer
+	DIO_SetPinValue(portD , 4 , LOW) ;                 	// OFF initially
 }
 void Buzzer_Toggle (void) {
-	DIO_SetPinValue(portD , 4 , HIGH) ;   // buzzer ON
+	DIO_SetPinValue(portD , 4 , HIGH) ;   			// buzzer ON
 	_delay_ms(1000) ;
-	DIO_SetPinValue(portD , 4 , LOW) ;    // buzzer OFF
+	DIO_SetPinValue(portD , 4 , LOW) ;    			// buzzer OFF
 }
 
 
