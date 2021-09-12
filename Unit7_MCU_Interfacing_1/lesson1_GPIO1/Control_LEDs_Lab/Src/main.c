@@ -36,8 +36,8 @@ typedef struct {
 
 
 void clock_init (void) {
-	RCC->RCC_APB2ENR |= (1 << 2) ;      // enable clock for PORT A
-	RCC->RCC_APB2ENR |= (1 << 3) ;      // enable clock for PORT B
+	RCC->RCC_APB2ENR |= (1 << 2) ;     			 // enable clock for PORT A
+	RCC->RCC_APB2ENR |= (1 << 3) ;      			// enable clock for PORT B
 }
 void GPIO_init (void) {
 	// configure PA1 as input floating
@@ -47,11 +47,11 @@ void GPIO_init (void) {
 	GPIO_PA_CRH |= (0b0100 << 20) ;
 
 	// configure PB1 as output push-pull
-	GPIO_PB_CRL &= ~(0b1111 << 4) ;       // clear all 4 mode and config bits
+	GPIO_PB_CRL &= ~(0b1111 << 4) ;       			// clear all 4 mode and config bits
 	GPIO_PB_CRL |= (0b0001 << 4) ;
 
 	// configure PB13 as output push-pull
-	GPIO_PB_CRH &= ~(0b1111 << 20) ;       // clear all 4 mode and config bits
+	GPIO_PB_CRH &= ~(0b1111 << 20) ;      			 // clear all 4 mode and config bits
 	GPIO_PB_CRH |= (0b0001 << 20) ;
 
 }
@@ -61,18 +61,18 @@ int main(void)
 	GPIO_init() ;
 
 	int delay = 0 ;
-	GPIO_PB_ODR |= (1 << 1) ;            // LED 1 initially OFF
-	GPIO_PB_ODR |= (1 << 13) ;			 // LED 2 initially OFF
+	GPIO_PB_ODR |= (1 << 1) ;            				// LED 1 initially OFF
+	GPIO_PB_ODR |= (1 << 13) ;	     				// LED 2 initially OFF
 
 	while (1) {
 		if (((GPIO_PA_IDR & (1<<1)) >> 1) == 0) {
-			GPIO_PB_ODR ^= (1 << 1) ;         // Toggle LED on PB1
+			GPIO_PB_ODR ^= (1 << 1) ;         		// Toggle LED on PB1
 			while (((GPIO_PA_IDR & (1<<1)) >> 1) == 0) ;
 		}
 
 
 		if (((GPIO_PA_IDR & (1<<13)) >> 13) == 1) {
-			GPIO_PB_ODR ^= (1 << 13) ;         // Toggle LED on PB13
+			GPIO_PB_ODR ^= (1 << 13) ;         		// Toggle LED on PB13
 			for (delay = 0 ; delay < 10000 ; delay ++) ;
 		}
 	}
