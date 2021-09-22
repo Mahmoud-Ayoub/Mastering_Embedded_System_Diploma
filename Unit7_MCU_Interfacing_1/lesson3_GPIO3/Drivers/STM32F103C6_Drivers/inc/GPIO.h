@@ -25,33 +25,33 @@
 #define GPIO_PIN_7 				 		((uint16_t)0x0080)
 #define GPIO_PIN_8 				 		((uint16_t)0x0100)
 #define GPIO_PIN_9 				 		((uint16_t)0x0200)
-#define GPIO_PIN_10 			 		((uint16_t)0x0400)
-#define GPIO_PIN_11 			 		((uint16_t)0x0800)
-#define GPIO_PIN_12 			 		((uint16_t)0x1000)
-#define GPIO_PIN_13 			 		((uint16_t)0x2000)
-#define GPIO_PIN_14 			 		((uint16_t)0x4000)
-#define GPIO_PIN_15 			 		((uint16_t)0x8000)
-#define GPIO_PIN_ALL					((uint16_t)0xFFFF)
+#define GPIO_PIN_10 			 			((uint16_t)0x0400)
+#define GPIO_PIN_11 			 			((uint16_t)0x0800)
+#define GPIO_PIN_12 			 			((uint16_t)0x1000)
+#define GPIO_PIN_13 			 			((uint16_t)0x2000)
+#define GPIO_PIN_14 			 			((uint16_t)0x4000)
+#define GPIO_PIN_15 			 			((uint16_t)0x8000)
+#define GPIO_PIN_ALL						((uint16_t)0xFFFF)
 
 /*
  *	@ref GPIO_MODE_define
  */
-#define GPIO_MODE_ANALOG 							(0x00u)
+#define GPIO_MODE_ANALOG 						(0x00u)
 #define GPIO_MODE_INPUT_FLOATING 					(0x01u)
 #define GPIO_MODE_INPUT_PULL_UP 					(0x02u)
 #define GPIO_MODE_INPUT_PULL_DOWN 					(0x03u)
 #define GPIO_MODE_OUTPUT_PUSH_PULL 					(0x04u)
-#define GPIO_MODE_OUTPUT_OPEN_DRAIN 				(0x05u)
+#define GPIO_MODE_OUTPUT_OPEN_DRAIN 					(0x05u)
 #define GPIO_MODE_AF_PUSH_PULL 						(0x06u)
 #define GPIO_MODE_AF_OPEN_DRAIN 					(0x07u)
-#define GPIO_MODE_AF_INPUT 							(0x08u)
+#define GPIO_MODE_AF_INPUT 						(0x08u)
 
 /*
  * 	@ref GPIO_SPEED_define
  */
-#define GPIO_SPEED_10M								(0x01u)
-#define GPIO_SPEED_2M								(0x02u)
-#define GPIO_SPEED_50M								(0x03u)
+#define GPIO_SPEED_10M							(0x01u)
+#define GPIO_SPEED_2M							(0x02u)
+#define GPIO_SPEED_50M							(0x03u)
 
 /*
  * @ref GPIO_PIN_state
@@ -65,22 +65,22 @@
 #define GPIO_LOCK_SUCCEED 	1
 #define GPIO_LOCK_ERROR		0
 // =========================================================================
-// 					Configuration Structures
+// 			Configuration Structures
 //==========================================================================
 typedef struct {
-	uint16_t GPIO_PinNumber ;       // specifies the GPIO pins to be configured
+	uint16_t GPIO_PinNumber ;       				// specifies the GPIO pins to be configured
 									// This parameter can be a value of @ref GPIO_PINS_define
 
-	uint8_t GPIO_MODE ;				// specifies the operating mode for the selected pins
+	uint8_t GPIO_MODE ;						// specifies the operating mode for the selected pins
 									// This parameter can be a value of @ref GPIO_MODE_define
 
-	uint8_t GPIO_Output_Speed ; 	// specifies the output speed for selected pins
+	uint8_t GPIO_Output_Speed ; 					// specifies the output speed for selected pins
 									// This parameter can be a value of @ref GPIO_SPEED_define
 
 }GPIO_PinConfig_t;
 
 // =========================================================================
-// 							APIs
+// 				APIs
 //==========================================================================
 void MCAL_GPIO_Init (GPIO_TypeDef* GPIOx , GPIO_PinConfig_t* PinConfig) ;
 void MCAL_GPIO_DeInit (GPIO_TypeDef* GPIOx) ;
