@@ -17,31 +17,31 @@
 // Base addresses for memories
 #define FLASH_MEMORY_BASE 						0x08000000UL
 #define SYSTEM_MEMORY_BASE						0x1FFFF000UL
-#define SRAM_BASE								0x20000000UL
+#define SRAM_BASE							0x20000000UL
 #define PEREPHIRALS_BASE 						0x40000000UL
-#define Cortex_M3_Internal_Peripherals_BASE 	0xE0000000UL
+#define Cortex_M3_Internal_Peripherals_BASE 				0xE0000000UL
 // ==================================================
 
 //Base address of RCC
-#define RCC_BASE 								0x40021000UL
+#define RCC_BASE 							0x40021000UL
 // ==================================================
 
 //Base address of GPIO
-#define GPIOA_BASE 								0x40010800UL
-#define GPIOB_BASE 								0x40010C00UL
-#define GPIOC_BASE 								0x40011000UL
-#define GPIOD_BASE 								0x40011400UL
-#define GPIOE_BASE 								0x40011800UL
-#define GPIOF_BASE 								0x40011C00UL
-#define GPIOG_BASE 								0x40012000UL
+#define GPIOA_BASE 							0x40010800UL
+#define GPIOB_BASE 							0x40010C00UL
+#define GPIOC_BASE 							0x40011000UL
+#define GPIOD_BASE 							0x40011400UL
+#define GPIOE_BASE 							0x40011800UL
+#define GPIOF_BASE 							0x40011C00UL
+#define GPIOG_BASE 							0x40012000UL
 // ==================================================
 
 //Base address of AFIO
-#define AFIO_BASE 								0x40010000UL
+#define AFIO_BASE 							0x40010000UL
 // ==================================================
 
 //Base address of EXTI
-#define EXTI_BASE 								0x40010400UL
+#define EXTI_BASE 							0x40010400UL
 // ==================================================
 
 //---------------------------------------------------------------------------------------------------
@@ -100,14 +100,14 @@ typedef struct {
 //---------------------------------------------------------------------------------------------------
 
 // Peripheral Instants
-#define GPIOA 									((GPIO_TypeDef*)GPIOA_BASE)
-#define GPIOB 									((GPIO_TypeDef*)GPIOB_BASE)
-#define GPIOC 									((GPIO_TypeDef*)GPIOC_BASE)
-#define GPIOD 									((GPIO_TypeDef*)GPIOD_BASE)
-#define GPIOE 									((GPIO_TypeDef*)GPIOE_BASE)
-#define GPIOF 									((GPIO_TypeDef*)GPIOF_BASE)
-#define GPIOG 									((GPIO_TypeDef*)GPIOG_BASE)
-#define RCC 									((RCC_TypeDef*)RCC_BASE)
+#define GPIOA 								((GPIO_TypeDef*)GPIOA_BASE)
+#define GPIOB 								((GPIO_TypeDef*)GPIOB_BASE)
+#define GPIOC 								((GPIO_TypeDef*)GPIOC_BASE)
+#define GPIOD 								((GPIO_TypeDef*)GPIOD_BASE)
+#define GPIOE 								((GPIO_TypeDef*)GPIOE_BASE)
+#define GPIOF 								((GPIO_TypeDef*)GPIOF_BASE)
+#define GPIOG 								((GPIO_TypeDef*)GPIOG_BASE)
+#define RCC 								((RCC_TypeDef*)RCC_BASE)
 // ==================================================
 
 //---------------------------------------------------------------------------------------------------
