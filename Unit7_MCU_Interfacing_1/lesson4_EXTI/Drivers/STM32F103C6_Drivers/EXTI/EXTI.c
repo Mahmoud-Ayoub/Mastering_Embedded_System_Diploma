@@ -9,9 +9,9 @@
 void (*GP_IRQ_CallBack[15])(void) ;
 
 #define AFIO_GPIO_EXTI_MAPPING(x)	((x == GPIOA)?0:\
-									(x == GPIOB)?1:\
-									(x == GPIOC)?2:\
-									(x == GPIOD)?3:0)
+					(x == GPIOB)?1:\
+					(x == GPIOC)?2:\
+					(x == GPIOD)?3:0)
 
 void NVIC_Enable (uint16_t IRQ) {
 	switch (IRQ) {
@@ -139,11 +139,11 @@ void EXTI_Update (EXTI_PinConfig_t* EXTI_Config) {
 }
 
 /*
- * 		@Fn				-	MCAL_EXTI_Init
+ * 		@Fn			-	MCAL_EXTI_Init
  * 		@brief			-	initialize EXTI required
  * 		@param[in]		-	Config (EXTI_GPIO_Mapping_t @ref EXTI_define , uint8_t Trigger @ref EXTI_Trigger_define , uint8_t IRQ_EN @ref EXTI_IRQ_EN_define)
  * 		@param[out]		-	none
- * 		@return value	-	none
+ * 		@return value		-	none
  * 		Note			-	none
  */
 void MCAL_EXTI_Init (EXTI_PinConfig_t* EXTI_Config) {
@@ -152,22 +152,22 @@ void MCAL_EXTI_Init (EXTI_PinConfig_t* EXTI_Config) {
 }
 
 /*
- * 		@Fn				-	MCAL_EXTI_Update
+ * 		@Fn			-	MCAL_EXTI_Update
  * 		@brief			-	initialize EXTI required
  * 		@param[in]		-	Config (EXTI_GPIO_Mapping_t @ref EXTI_define , uint8_t Trigger @ref EXTI_Trigger_define , uint8_t IRQ_EN @ref EXTI_IRQ_EN_define)
  * 		@param[out]		-	none
- * 		@return value	-	none
+ * 		@return value		-	none
  * 		Note			-	none
  */
 void MCAL_EXTI_Update (EXTI_PinConfig_t* EXTI_Config) {
 	EXTI_Update (EXTI_Config) ;
 }
 /*
- * 		@Fn				-	MCAL_EXTI_DeInit
+ * 		@Fn			-	MCAL_EXTI_DeInit
  * 		@brief			-	Reset the EXTI registers
  * 		@param[in]		-	none
  * 		@param[out]		-	none
- * 		@return value	-	none
+ * 		@return value		-	none
  * 		Note			-	none
  */
 void MCAL_EXTI_DeInit (void) {
