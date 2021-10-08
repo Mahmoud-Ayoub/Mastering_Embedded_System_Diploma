@@ -8,12 +8,12 @@
 USART_Config_t* g_USART_Cfg[3] = {NULL} ;
 
 /*
- * 		@Fn				-	MCAL_USART_Init
+ * 		@Fn			-	MCAL_USART_Init
  * 		@brief			-	Initialize USART module
  * 		@param[in]		-	USARTx (USART1 , USART2 , USART3)
- * 							USART configurations required
+ * 						USART configurations required
  * 		@param[out]		-	none
- * 		@return value	-	none
+ * 		@return value		-	none
  * 		Note			-	Configuration MACROS can be found in USART.h
  */
 void MCAL_USART_Init(USART_TypeDef* USARTx , USART_Config_t* USART_Config) {
@@ -81,11 +81,11 @@ void MCAL_USART_Init(USART_TypeDef* USARTx , USART_Config_t* USART_Config) {
 }
 
 /*
- * 		@Fn				-	MCAL_USART_DeInit
+ * 		@Fn			-	MCAL_USART_DeInit
  * 		@brief			-	Reset USART module
  * 		@param[in]		-	USARTx (USART1 , USART2 , USART3)
  * 		@param[out]		-	none
- * 		@return value	-	none
+ * 		@return value		-	none
  * 		Note			-	none
  */
 void MCAL_USART_DeInit(USART_TypeDef* USARTx) {
@@ -104,13 +104,13 @@ void MCAL_USART_DeInit(USART_TypeDef* USARTx) {
 }
 
 /*
- * 		@Fn				-	MCAL_USART_GPIO_Pins
+ * 		@Fn			-	MCAL_USART_GPIO_Pins
  * 		@brief			-	Initialize GPIO AF pins for (TX  / RX)
  * 		@param[in]		-	USARTx (USART1 , USART2 , USART3)
  * 		@param[out]		-	none
- * 		@return value	-	none
+ * 		@return value		-	none
  * 		Note			-	required AF modes can be found in TRM @ section 9.1.11 GPIO configurations for device peripherals
- *							AFIO pins can be found in TRM @ section 9.3 Alternate function I/O
+ *						AFIO pins can be found in TRM @ section 9.3 Alternate function I/O
  */
 void MCAL_USART_GPIO_Pins (USART_TypeDef* USARTx) {
 	/*
@@ -178,13 +178,13 @@ void MCAL_USART_GPIO_Pins (USART_TypeDef* USARTx) {
 }
 
 /*
- * 		@Fn				-	MCAL_USART_Send_Data
+ * 		@Fn			-	MCAL_USART_Send_Data
  * 		@brief			-	Send Data over UART
  * 		@param[in]		-	USARTx (USART1 , USART2 , USART3)
- * 							pointer to data buffer
- * 							polling mechanism state (enable / disable)
+ * 						pointer to data buffer
+ * 						polling mechanism state (enable / disable)
  * 		@param[out]		-	none
- * 		@return value	-	none
+ * 		@return value		-	none
  * 		Note			-	none
  */
 void MCAL_USART_Send_Data(USART_TypeDef* USARTx , uint16_t* data , EN_Polling_Mechanism polling_state) {
@@ -226,13 +226,13 @@ void MCAL_USART_Send_Data(USART_TypeDef* USARTx , uint16_t* data , EN_Polling_Me
 }
 
 /*
- * 		@Fn				-	MCAL_USART_Receive_Data
+ * 		@Fn			-	MCAL_USART_Receive_Data
  * 		@brief			-	Receive Data over UART
  * 		@param[in]		-	USARTx (USART1 , USART2 , USART3)
- * 							pointer to data buffer
- * 							polling mechanism state (enable / disable)
+ * 						pointer to data buffer
+ * 						polling mechanism state (enable / disable)
  * 		@param[out]		-	none
- * 		@return value	-	none
+ * 		@return value		-	none
  * 		Note			-	none
  */
 void MCAL_USART_Receive_Data(USART_TypeDef* USARTx , uint16_t* data , EN_Polling_Mechanism polling_state) {
@@ -255,7 +255,7 @@ void MCAL_USART_Receive_Data(USART_TypeDef* USARTx , uint16_t* data , EN_Polling
 				*data = USARTx->DR & (uint8_t)0xFF ;
 			}
 		}
-		else {															// 8 Bits Data
+		else {										// 8 Bits Data
 			if (g_USART_Cfg[0]->Parity == USART_PARITY_NONE) {
 				// All 8 bits are data
 				*data = USARTx->DR & (uint8_t)0xFF  ;
@@ -277,7 +277,7 @@ void MCAL_USART_Receive_Data(USART_TypeDef* USARTx , uint16_t* data , EN_Polling
 				*data = USARTx->DR & (uint8_t)0xFF ;
 			}
 		}
-		else {															// 8 Bits Data
+		else {										// 8 Bits Data
 			if (g_USART_Cfg[1]->Parity == USART_PARITY_NONE) {
 				// All 8 bits are data
 				*data = USARTx->DR & (uint8_t)0xFF  ;
@@ -300,7 +300,7 @@ void MCAL_USART_Receive_Data(USART_TypeDef* USARTx , uint16_t* data , EN_Polling
 				*data = USARTx->DR & (uint8_t)0xFF ;
 			}
 		}
-		else {															// 8 Bits Data
+		else {										// 8 Bits Data
 			if (g_USART_Cfg[2]->Parity == USART_PARITY_NONE) {
 				// All 8 bits are data
 				*data = USARTx->DR & (uint8_t)0xFF  ;
