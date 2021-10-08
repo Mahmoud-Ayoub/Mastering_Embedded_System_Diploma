@@ -6,11 +6,11 @@
 #include "RCC.h"
 
 /*
- * 		@Fn				-	MCAL_RCC_Get_SysClk_Freq
+ * 		@Fn			-	MCAL_RCC_Get_SysClk_Freq
  * 		@brief			-	Get System clock frequency
  * 		@param[in]		-	none
  * 		@param[out]		-	none
- * 		@return value	-	SysClk frequency
+ * 		@return value		-	SysClk frequency
  * 		Note			-	none
  */
 uint32_t MCAL_RCC_Get_SysClk_Freq (void) {
@@ -28,11 +28,11 @@ uint32_t MCAL_RCC_Get_SysClk_Freq (void) {
 }
 
 /*
- * 		@Fn				-	MCAL_RCC_Get_HClk_Freq
+ * 		@Fn			-	MCAL_RCC_Get_HClk_Freq
  * 		@brief			-	Get AHB clock frequency
  * 		@param[in]		-	none
  * 		@param[out]		-	none
- * 		@return value	-	AHB clock frequency
+ * 		@return value		-	AHB clock frequency
  * 		Note			-	none
  */
 uint32_t MCAL_RCC_Get_HClk_Freq (void) {
@@ -93,11 +93,11 @@ uint32_t MCAL_RCC_Get_HClk_Freq (void) {
 }
 
 /*
- * 		@Fn				-	MCAL_RCC_Get_PClk1_Freq
+ * 		@Fn			-	MCAL_RCC_Get_PClk1_Freq
  * 		@brief			-	Get APB1 clock frequency
  * 		@param[in]		-	none
  * 		@param[out]		-	none
- * 		@return value	-	APB1 clock frequency
+ * 		@return value		-	APB1 clock frequency
  * 		Note			-	none
  */
 uint32_t MCAL_RCC_Get_PClk1_Freq (void) {
@@ -137,11 +137,11 @@ uint32_t MCAL_RCC_Get_PClk1_Freq (void) {
 }
 
 /*
- * 		@Fn				-	MCAL_RCC_Get_PClk2_Freq
+ * 		@Fn			-	MCAL_RCC_Get_PClk2_Freq
  * 		@brief			-	Get APB2 clock frequency
  * 		@param[in]		-	none
  * 		@param[out]		-	none
- * 		@return value	-	APB2 clock frequency
+ * 		@return value		-	APB2 clock frequency
  * 		Note			-	none
  */
 uint32_t MCAL_RCC_Get_PClk2_Freq (void) {
