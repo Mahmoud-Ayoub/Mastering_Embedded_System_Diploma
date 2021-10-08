@@ -58,14 +58,14 @@ static GPIO_CRLH_GetPosition (uint16_t PinNumber) {
 	}
 }
 /*
- * 		@Fn				-	MCAL_GPIO_Init
+ * 		@Fn			-	MCAL_GPIO_Init
  * 		@brief			-	Initializes the GPIOx pin according to the specified parameters in PinConfig
  * 		@param[in]		-	GPIOx : where x can be (A..G) to select GPIO peripheral
  * 		@param[in]		-	PinConfig is a pointer to GPIO_PinConfig_t structure which contains GPIO pin configuration
  * 		@param[out]		-	none
- * 		@return value	-	none
+ * 		@return value		-	none
  * 		Note			-	STM32F103C6 has GPIO A,B,C,D,E,F,G Modules
- * 							But LQFP48 Package has only GPIO A , B , part of C , part of D
+ * 						But LQFP48 Package has only GPIO A , B , part of C , part of D
  *
  */
 void MCAL_GPIO_Init (GPIO_TypeDef* GPIOx , GPIO_PinConfig_t* PinConfig) {
@@ -116,11 +116,11 @@ void MCAL_GPIO_Init (GPIO_TypeDef* GPIOx , GPIO_PinConfig_t* PinConfig) {
 }
 
 /*
- * 		@Fn				-	MCAL_GPIO_DeInit
+ * 		@Fn			-	MCAL_GPIO_DeInit
  * 		@brief			-	Reset the GPIOx registers
  * 		@param[in]		-	GPIOx : where x can be (A..G) to select GPIO peripheral
  * 		@param[out]		-	none
- * 		@return value	-	none
+ * 		@return value		-	none
  * 		Note			-	none
  */
 void MCAL_GPIO_DeInit (GPIO_TypeDef* GPIOx) {
@@ -155,12 +155,12 @@ void MCAL_GPIO_DeInit (GPIO_TypeDef* GPIOx) {
 }
 
 /*
- * 		@Fn				-	MCAL_GPIO_ReadPin
+ * 		@Fn			-	MCAL_GPIO_ReadPin
  * 		@brief			-	Read data on specified Pin on the GPIOx
  * 		@param[in]		-	GPIOx : where x can be (A..G) to select GPIO peripheral
  * 		@param[in]		-	PinNumber : where PinNumber can be (GPIO_PIN_0 .. 15) according to @ref GPIO_PINS_define
  * 		@param[out]		- 	none
- * 		@return value	-	value of input pin according to @ref GPIO_PIN_state
+ * 		@return value		-	value of input pin according to @ref GPIO_PIN_state
  * 		Note			-	none
  */
 uint8_t MCAL_GPIO_ReadPin (GPIO_TypeDef* GPIOx , uint16_t PinNumber) {
@@ -173,11 +173,11 @@ uint8_t MCAL_GPIO_ReadPin (GPIO_TypeDef* GPIOx , uint16_t PinNumber) {
 }
 
 /*
- * 		@Fn				-	MCAL_GPIO_ReadPort
+ * 		@Fn			-	MCAL_GPIO_ReadPort
  * 		@brief			-	Read data on specified Port
  * 		@param[in]		-	GPIOx : where x can be (A..G) to select GPIO peripheral
  * 		@param[out]		-	none
- * 		@return value	-	value of input port
+ * 		@return value		-	value of input port
  * 		Note			-	none
  */
 uint16_t MCAL_GPIO_ReadPort (GPIO_TypeDef* GPIOx) {
@@ -185,13 +185,13 @@ uint16_t MCAL_GPIO_ReadPort (GPIO_TypeDef* GPIOx) {
 }
 
 /*
- * 		@Fn				-	MCAL_GPIO_WritePin
+ * 		@Fn			-	MCAL_GPIO_WritePin
  * 		@brief			-	Write data on specified Pin on the GPIOx
  * 		@param[in]		-	GPIOx : where x can be (A..G) to select GPIO peripheral
  * 		@param[in]		-	PinNumber : where PinNumber can be (GPIO_PIN_0 .. 15) according to @ref GPIO_PINS_define
  * 		@param[in]		-	Value required to be written on the specified pin
  * 		@param[out]		- 	none
- * 		@return value	-	none
+ * 		@return value		-	none
  * 		Note			-	none
  */
 void MCAL_GPIO_WritePin (GPIO_TypeDef* GPIOx , uint16_t PinNumber , uint8_t Value) {
@@ -204,12 +204,12 @@ void MCAL_GPIO_WritePin (GPIO_TypeDef* GPIOx , uint16_t PinNumber , uint8_t Valu
 }
 
 /*
- * 		@Fn				-	MCAL_GPIO_WritePort
+ * 		@Fn			-	MCAL_GPIO_WritePort
  * 		@brief			-	Write data on specified Port
  * 		@param[in]		-	GPIOx : where x can be (A..G) to select GPIO peripheral
  * 		@param[in]		-	Value required to be written on the specified port
  * 		@param[out]		- 	none
- * 		@return value	-	none
+ * 		@return value		-	none
  * 		Note			-	none
  */
 void MCAL_GPIO_WritePort (GPIO_TypeDef* GPIOx , uint16_t Value) {
@@ -217,12 +217,12 @@ void MCAL_GPIO_WritePort (GPIO_TypeDef* GPIOx , uint16_t Value) {
 }
 
 /*
- * 		@Fn				-	MCAL_GPIO_TogglePin
+ * 		@Fn			-	MCAL_GPIO_TogglePin
  * 		@brief			-	Toggle Pin on the GPIOx
  * 		@param[in]		-	GPIOx : where x can be (A..G) to select GPIO peripheral
  * 		@param[in]		-	PinNumber : where PinNumber can be (GPIO_PIN_0 .. 15) according to @ref GPIO_PINS_define
  * 		@param[out]		- 	none
- * 		@return value	-	none
+ * 		@return value		-	none
  * 		Note			-	none
  */
 void MCAL_GPIO_TogglePin (GPIO_TypeDef* GPIOx , uint16_t PinNumber) {
@@ -230,12 +230,12 @@ void MCAL_GPIO_TogglePin (GPIO_TypeDef* GPIOx , uint16_t PinNumber) {
 }
 
 /*
- * 		@Fn				-	MCAL_GPIO_LockPin
+ * 		@Fn			-	MCAL_GPIO_LockPin
  * 		@brief			-	Lock Pin on the GPIOx
  * 		@param[in]		-	GPIOx : where x can be (A..G) to select GPIO peripheral
  * 		@param[in]		-	PinNumber : where PinNumber can be (GPIO_PIN_0 .. 15) according to @ref GPIO_PINS_define
  * 		@param[out]		- 	none
- * 		@return value	-	OK if lock succeed or ERROR is lock failed according to @ref GPIO_RETURN_LOCK
+ * 		@return value		-	OK if lock succeed or ERROR is lock failed according to @ref GPIO_RETURN_LOCK
  * 		Note			-	none
  */
 uint8_t MCAL_GPIO_LockPin (GPIO_TypeDef* GPIOx , uint16_t PinNumber) {
