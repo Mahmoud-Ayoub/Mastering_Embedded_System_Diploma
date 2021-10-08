@@ -14,16 +14,16 @@
 // ---------------------------------Configuration Structures-----------------------------------------
 
 typedef struct {
-	uint16_t EXTI_InputLineNumber ;					// This parameter is set from @ref EXTI_InputLineNumber
+	uint16_t EXTI_InputLineNumber ;						// This parameter is set from @ref EXTI_InputLineNumber
 	GPIO_TypeDef* GPIO_Port ;
 	uint16_t GPIO_Pin ;
 	uint8_t IVT_IRQ_Number ;						// This parameter is set from @ref IVT_IRQ_Number @ MCU DEVICE HEADER
 }EXTI_GPIO_Mapping_t;
 
 typedef struct {
-	EXTI_GPIO_Mapping_t EXTI_Pin ;					// This parameter is set from @ref EXTI_define (GPIO Mapping)
-	uint8_t Trigger ; 								// This parameter is set from @ref EXTI_Trigger_define (Edge Trigger)
-	uint8_t IRQ_EN ; 								// This parameter is set from @ref EXTI_IRQ_EN_define (INT_MASK + NVIC Enable/Disable)
+	EXTI_GPIO_Mapping_t EXTI_Pin ;						// This parameter is set from @ref EXTI_define (GPIO Mapping)
+	uint8_t Trigger ; 							// This parameter is set from @ref EXTI_Trigger_define (Edge Trigger)
+	uint8_t IRQ_EN ; 							// This parameter is set from @ref EXTI_IRQ_EN_define (INT_MASK + NVIC Enable/Disable)
 	void (*P_IRQ_CallBack)(void) ;
 }EXTI_PinConfig_t;
 
@@ -147,7 +147,7 @@ typedef struct {
 #define EXTI15PD15		(EXTI_GPIO_Mapping_t){EXTI15 , GPIOD , GPIO_PIN_15 , EXTI15_IRQ}
 
 // @ref EXTI_Trigger_define
-#define EXTI_Trigger_RISING		0
+#define EXTI_Trigger_RISING	0
 #define EXTI_Trigger_FALLING	1
 #define EXTI_Trigger_ANYCHANGE	2
 
