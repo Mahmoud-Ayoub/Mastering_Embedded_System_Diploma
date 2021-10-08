@@ -1,0 +1,2 @@
+main.c:14:6:USART1_RX_IRQ_CB	8	static
+main.c:19:5:main	32	static
