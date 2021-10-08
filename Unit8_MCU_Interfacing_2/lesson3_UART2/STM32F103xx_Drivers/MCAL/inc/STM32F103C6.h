@@ -15,11 +15,11 @@
 //---------------------------------------------------------------------------------------------------
 
 // Base addresses for memories
-#define FLASH_MEMORY_BASE 						0x08000000UL
-#define SYSTEM_MEMORY_BASE						0x1FFFF000UL
+#define FLASH_MEMORY_BASE 							0x08000000UL
+#define SYSTEM_MEMORY_BASE							0x1FFFF000UL
 #define SRAM_BASE								0x20000000UL
-#define PEREPHIRALS_BASE 						0x40000000UL
-#define Cortex_M3_Internal_Peripherals_BASE 	0xE0000000UL
+#define PEREPHIRALS_BASE 							0x40000000UL
+#define Cortex_M3_Internal_Peripherals_BASE 					0xE0000000UL
 #define NVIC_BASE								0xE000E100UL
 
 // NVIC Registers
@@ -184,7 +184,7 @@ typedef struct {
 #define NVIC_IRQ9_EXTI3_ENABLE()		(NVIC_ISER0 |= (1<<9))
 #define NVIC_IRQ10_EXTI4_ENABLE()		(NVIC_ISER0 |= (1<<10))
 #define NVIC_IRQ23_EXTI5_9_ENABLE()		(NVIC_ISER0 |= (1<<23))
-#define NVIC_IRQ40_EXTI10_15_ENABLE()	(NVIC_ISER1 |= (1<<8))		// 40 - 32 = 8
+#define NVIC_IRQ40_EXTI10_15_ENABLE()		(NVIC_ISER1 |= (1<<8))		// 40 - 32 = 8
 #define NVIC_IRQ37_USART1_ENABLE()		(NVIC_ISER1 |= (1<<5))		// 37 - 32 = 5
 #define NVIC_IRQ38_USART2_ENABLE()		(NVIC_ISER1 |= (1<<6))		// 38 - 32 = 6
 #define NVIC_IRQ39_USART3_ENABLE()		(NVIC_ISER1 |= (1<<7))		// 39 - 32 = 7
@@ -194,8 +194,8 @@ typedef struct {
 #define NVIC_IRQ8_EXTI2_DISABLE()		(NVIC_ICER0 |= (1<<8))
 #define NVIC_IRQ9_EXTI3_DISABLE()		(NVIC_ICER0 |= (1<<9))
 #define NVIC_IRQ10_EXTI4_DISABLE()		(NVIC_ICER0 |= (1<<10))
-#define NVIC_IRQ23_EXTI5_9_DISABLE()	(NVIC_ICER0 |= (1<<23))
-#define NVIC_IRQ40_EXTI10_15_DISABLE()	(NVIC_ICER1 |= (1<<8))		// 40 - 32 = 8
+#define NVIC_IRQ23_EXTI5_9_DISABLE()		(NVIC_ICER0 |= (1<<23))
+#define NVIC_IRQ40_EXTI10_15_DISABLE()		(NVIC_ICER1 |= (1<<8))		// 40 - 32 = 8
 #define NVIC_IRQ37_USART1_DISABLE()		(NVIC_ICER1 |= (1<<5))		// 37 - 32 = 5
 #define NVIC_IRQ38_USART2_DISABLE()		(NVIC_ICER1 |= (1<<6))		// 38 - 32 = 6
 #define NVIC_IRQ39_USART3_DISABLE()		(NVIC_ICER1 |= (1<<7))		// 39 - 32 = 7
