@@ -1,0 +1,10 @@
+LCD.c:9:6:wait_ms	24	static
+LCD.c:21:6:LCD_init	32	static
+LCD.c:73:6:LCD_send_cmd	24	static
+LCD.c:112:6:LCD_send_char	24	static
+LCD.c:141:6:LCD_send_str	24	static
+LCD.c:154:6:LCD_clear	8	static
+LCD.c:163:6:LCD_newline	8	static
+LCD.c:172:6:LCD_shift_left	8	static
+LCD.c:181:6:LCD_shift_right	8	static
+LCD.c:190:6:LCD_home	8	static

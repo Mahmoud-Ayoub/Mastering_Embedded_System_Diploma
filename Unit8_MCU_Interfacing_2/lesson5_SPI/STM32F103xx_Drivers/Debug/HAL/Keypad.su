@@ -1,0 +1,3 @@
+Keypad.c:14:6:KEYPAD_init	40	static
+Keypad.c:67:6:KEYPAD_read	16	static
+Keypad.c:118:6:KEYPAD_wait	4	static
