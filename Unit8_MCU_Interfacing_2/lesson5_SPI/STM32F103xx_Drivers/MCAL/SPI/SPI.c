@@ -5,8 +5,9 @@
  */
 #include "SPI.h"
 // ---------------------------------Global Variables ------------------------------------------------
-SPI_Config_t* g_SPI_Cfg[2] = {NULL} ;
-
+SPI_Config_t* g_SPI_Cfg[2] = {NULL , NULL} ;
+SPI_Config_t g_SPI_Cfg1 ;
+SPI_Config_t g_SPI_Cfg2 ;
 // ---------------------------------Generic MACROS ------------------------------------------------
 #define SPI1_index	0
 #define SPI2_index	1
@@ -29,11 +30,13 @@ void MCAL_SPI_Init (SPI_TypeDef* SPIx , SPI_Config_t* SPI_Cfg) {
 
 	if (SPIx == SPI1) {
 		CLK_EN_SPI1() ;
-		g_SPI_Cfg[SPI1_index] = SPI_Cfg ;
+		g_SPI_Cfg1 = *SPI_Cfg ;
+		g_SPI_Cfg[SPI1_index] = &g_SPI_Cfg1 ;
 	}
 	else if (SPIx == SPI2) {
 		CLK_EN_SPI2() ;
-		g_SPI_Cfg[SPI2_index] = SPI_Cfg ;
+		g_SPI_Cfg2 = *SPI_Cfg ;
+		g_SPI_Cfg[SPI2_index] = &g_SPI_Cfg2 ;
 	}
 	tempCR1_reg |= (1 << SPE_BIT) ; 				// SPE enable
 	tempCR1_reg |= SPI_Cfg->Device_Mode ;
