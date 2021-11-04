@@ -1,0 +1,4 @@
+RCC.c:16:10:MCAL_RCC_Get_SysClk_Freq	4	static
+RCC.c:38:10:MCAL_RCC_Get_HClk_Freq	24	static
+RCC.c:103:10:MCAL_RCC_Get_PClk1_Freq	24	static
+RCC.c:147:10:MCAL_RCC_Get_PClk2_Freq	24	static
