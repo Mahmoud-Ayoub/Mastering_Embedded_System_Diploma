@@ -15,11 +15,6 @@
 #define T0_INTMask_REG			(*((volatile uint8*)0x59))
 #define T0_Status_REG			(*((volatile uint8*)0x58))
 
-/*
-#define NON_INVERTING_MODE 0
-#define INVERTING_MODE 1
-*/
-
 typedef struct {
 	// specifies PWM mode required (fast pwm , phase correct pwm)
 	// This parameter is set using @ref PWM_MODE @ pwm.h
@@ -34,6 +29,7 @@ typedef struct {
 	uint8 clock_select ; 
 	
 }PWM_Config_t;
+
 
 /**************************************************************
 						Reference Macros
@@ -57,6 +53,8 @@ typedef struct {
 #define PWM_CLK_INTERNAL_1024		((uint8)(0b101 << 0))
 #define PWM_CLK_EXTERNAL_FALLING	((uint8)(0b110 << 0))
 #define PWM_CLK_EXTERNAL_RISING		((uint8)(0b111 << 0))
+
+
 
 /**************************************************************
 						APIs

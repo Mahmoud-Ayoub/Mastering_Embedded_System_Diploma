@@ -421,24 +421,24 @@ END GROUP
  .debug_abbrev  0x000004a3       0xb5 main.o
  .debug_abbrev  0x00000558       0xae pwm.o
 
-.debug_line     0x00000000      0x165
+.debug_line     0x00000000      0x167
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000       0x1a c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega32.o
  .debug_line    0x0000001a       0xdb main.o
- .debug_line    0x000000f5       0x70 pwm.o
+ .debug_line    0x000000f5       0x72 pwm.o
 
 .debug_frame    0x00000000       0x68
  *(.debug_frame)
  .debug_frame   0x00000000       0x34 main.o
  .debug_frame   0x00000034       0x34 pwm.o
 
-.debug_str      0x00000000      0x36d
+.debug_str      0x00000000      0x3a2
  *(.debug_str)
  .debug_str     0x00000000      0x196 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega32.o
- .debug_str     0x00000196      0x1a9 main.o
-                                0x1dd (size before relaxing)
- .debug_str     0x0000033f       0x2e pwm.o
-                                0x1ce (size before relaxing)
+ .debug_str     0x00000196      0x1de main.o
+                                0x212 (size before relaxing)
+ .debug_str     0x00000374       0x2e pwm.o
+                                0x203 (size before relaxing)
 
 .debug_loc      0x00000000       0x91
  *(.debug_loc)
