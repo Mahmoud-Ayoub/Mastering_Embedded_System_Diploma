@@ -10,7 +10,7 @@
 #include "Std_Types.h"
 
 #define T0_Control_REG			(*((volatile uint8*)0x53))
-#define T0_Data_REG				(*((volatile uint8*)0x52))
+#define T0_Data_REG			(*((volatile uint8*)0x52))
 #define T0_OutCmp_REG			(*((volatile uint8*)0x5C))
 #define T0_INTMask_REG			(*((volatile uint8*)0x59))
 #define T0_Status_REG			(*((volatile uint8*)0x58))
@@ -32,10 +32,10 @@ typedef struct {
 
 
 /**************************************************************
-						Reference Macros
+			Reference Macros
 ***************************************************************/
 // @ref PWM_MODE
-#define PWM_MODE_FAST			((uint8)( (1<<3) | (1<<6)))
+#define PWM_MODE_FAST		((uint8)( (1<<3) | (1<<6)))
 #define PWM_MODE_PHASE_CORRECT	((uint8)((0<<3) | (1<<6)))	
 
 // @ref PWM_OUTCMP_MODE
@@ -49,15 +49,15 @@ typedef struct {
 #define PWM_CLK_INTERNAL_1			((uint8)(0b001 << 0))
 #define PWM_CLK_INTERNAL_8			((uint8)(0b010 << 0))
 #define PWM_CLK_INTERNAL_64			((uint8)(0b011 << 0))
-#define PWM_CLK_INTERNAL_256		((uint8)(0b100 << 0))
-#define PWM_CLK_INTERNAL_1024		((uint8)(0b101 << 0))
-#define PWM_CLK_EXTERNAL_FALLING	((uint8)(0b110 << 0))
-#define PWM_CLK_EXTERNAL_RISING		((uint8)(0b111 << 0))
+#define PWM_CLK_INTERNAL_256			((uint8)(0b100 << 0))
+#define PWM_CLK_INTERNAL_1024			((uint8)(0b101 << 0))
+#define PWM_CLK_EXTERNAL_FALLING		((uint8)(0b110 << 0))
+#define PWM_CLK_EXTERNAL_RISING			((uint8)(0b111 << 0))
 
 
 
 /**************************************************************
-						APIs
+				APIs
 ***************************************************************/
 void MCAL_Pwm_Init (PWM_Config_t* pwm_config) ; 
 void MCAL_Pwm_Start (uint8 duty_cycle) ; 
