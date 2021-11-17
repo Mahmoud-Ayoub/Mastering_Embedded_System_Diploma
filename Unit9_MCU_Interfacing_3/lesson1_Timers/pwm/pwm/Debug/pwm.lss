@@ -1,0 +1,201 @@
+
+pwm.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000116  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  00800060  0000016a  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .comment      00000030  00000000  00000000  0000016a  2**0
+                  CONTENTS, READONLY
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  0000019c  2**2
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000048  00000000  00000000  000001d8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00000724  00000000  00000000  00000220  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 00000606  00000000  00000000  00000944  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   00000165  00000000  00000000  00000f4a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000068  00000000  00000000  000010b0  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    0000036d  00000000  00000000  00001118  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00000091  00000000  00000000  00001485  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000028  00000000  00000000  00001516  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+   8:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+   c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  10:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  14:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  18:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  1c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  20:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  24:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  28:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  2c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  30:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  34:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  38:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  3c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  40:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  44:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  48:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  4c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  50:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d8 e0       	ldi	r29, 0x08	; 8
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+  60:	0e 94 36 00 	call	0x6c	; 0x6c <main>
+  64:	0c 94 89 00 	jmp	0x112	; 0x112 <_exit>
+
+00000068 <__bad_interrupt>:
+  68:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+0000006c <main>:
+#include "pwm.h"
+
+#define F_CPU 8000000UL
+
+void main()
+{
+  6c:	cf 93       	push	r28
+  6e:	df 93       	push	r29
+  70:	00 d0       	rcall	.+0      	; 0x72 <main+0x6>
+  72:	1f 92       	push	r1
+  74:	cd b7       	in	r28, 0x3d	; 61
+  76:	de b7       	in	r29, 0x3e	; 62
+	
+	DDRB |= (1<<PB3);
+  78:	bb 9a       	sbi	0x17, 3	; 23
+	PWM_Config_t pwm0_cfg ; 
+	pwm0_cfg.pwm_mode = PWM_MODE_PHASE_CORRECT ; 
+  7a:	80 e4       	ldi	r24, 0x40	; 64
+  7c:	89 83       	std	Y+1, r24	; 0x01
+	pwm0_cfg.output_compare_mode = PWM_OUTCMP_MODE_FAST_INVERTING ; 
+  7e:	80 e3       	ldi	r24, 0x30	; 48
+  80:	8a 83       	std	Y+2, r24	; 0x02
+	pwm0_cfg.clock_select = PWM_CLK_INTERNAL_8 ;
+  82:	82 e0       	ldi	r24, 0x02	; 2
+  84:	8b 83       	std	Y+3, r24	; 0x03
+	MCAL_Pwm_Init(&pwm0_cfg) ; 
+  86:	ce 01       	movw	r24, r28
+  88:	01 96       	adiw	r24, 0x01	; 1
+  8a:	0e 94 4b 00 	call	0x96	; 0x96 <MCAL_Pwm_Init>
+	 
+	while(1)
+	{
+		MCAL_Pwm_Start(80);   
+  8e:	80 e5       	ldi	r24, 0x50	; 80
+  90:	0e 94 57 00 	call	0xae	; 0xae <MCAL_Pwm_Start>
+  94:	fc cf       	rjmp	.-8      	; 0x8e <main+0x22>
+
+00000096 <MCAL_Pwm_Init>:
+ *
+ *  Author: Mahmoud Ayoub
+ */ 
+#include "pwm.h"
+
+void MCAL_Pwm_Init (PWM_Config_t* pwm_config) {
+  96:	fc 01       	movw	r30, r24
+	T0_Control_REG |= (pwm_config->pwm_mode) | (pwm_config->output_compare_mode) | (pwm_config->clock_select) ; 
+  98:	23 b7       	in	r18, 0x33	; 51
+  9a:	80 81       	ld	r24, Z
+  9c:	82 2b       	or	r24, r18
+  9e:	91 81       	ldd	r25, Z+1	; 0x01
+  a0:	28 2f       	mov	r18, r24
+  a2:	29 2b       	or	r18, r25
+  a4:	92 81       	ldd	r25, Z+2	; 0x02
+  a6:	82 2f       	mov	r24, r18
+  a8:	89 2b       	or	r24, r25
+  aa:	83 bf       	out	0x33, r24	; 51
+  ac:	08 95       	ret
+
+000000ae <MCAL_Pwm_Start>:
+}
+
+void MCAL_Pwm_Start (uint8 duty_cycle) {
+	uint8 outcmp_value = 255 * duty_cycle / 100 ;
+  ae:	2f ef       	ldi	r18, 0xFF	; 255
+  b0:	82 9f       	mul	r24, r18
+  b2:	c0 01       	movw	r24, r0
+  b4:	11 24       	eor	r1, r1
+  b6:	64 e6       	ldi	r22, 0x64	; 100
+  b8:	70 e0       	ldi	r23, 0x00	; 0
+  ba:	0e 94 61 00 	call	0xc2	; 0xc2 <__divmodhi4>
+	T0_OutCmp_REG = outcmp_value ;
+  be:	6c bf       	out	0x3c, r22	; 60
+  c0:	08 95       	ret
+
+000000c2 <__divmodhi4>:
+  c2:	97 fb       	bst	r25, 7
+  c4:	07 2e       	mov	r0, r23
+  c6:	16 f4       	brtc	.+4      	; 0xcc <__divmodhi4+0xa>
+  c8:	00 94       	com	r0
+  ca:	07 d0       	rcall	.+14     	; 0xda <__divmodhi4_neg1>
+  cc:	77 fd       	sbrc	r23, 7
+  ce:	09 d0       	rcall	.+18     	; 0xe2 <__divmodhi4_neg2>
+  d0:	0e 94 75 00 	call	0xea	; 0xea <__udivmodhi4>
+  d4:	07 fc       	sbrc	r0, 7
+  d6:	05 d0       	rcall	.+10     	; 0xe2 <__divmodhi4_neg2>
+  d8:	3e f4       	brtc	.+14     	; 0xe8 <__divmodhi4_exit>
+
+000000da <__divmodhi4_neg1>:
+  da:	90 95       	com	r25
+  dc:	81 95       	neg	r24
+  de:	9f 4f       	sbci	r25, 0xFF	; 255
+  e0:	08 95       	ret
+
+000000e2 <__divmodhi4_neg2>:
+  e2:	70 95       	com	r23
+  e4:	61 95       	neg	r22
+  e6:	7f 4f       	sbci	r23, 0xFF	; 255
+
+000000e8 <__divmodhi4_exit>:
+  e8:	08 95       	ret
+
+000000ea <__udivmodhi4>:
+  ea:	aa 1b       	sub	r26, r26
+  ec:	bb 1b       	sub	r27, r27
+  ee:	51 e1       	ldi	r21, 0x11	; 17
+  f0:	07 c0       	rjmp	.+14     	; 0x100 <__udivmodhi4_ep>
+
+000000f2 <__udivmodhi4_loop>:
+  f2:	aa 1f       	adc	r26, r26
+  f4:	bb 1f       	adc	r27, r27
+  f6:	a6 17       	cp	r26, r22
+  f8:	b7 07       	cpc	r27, r23
+  fa:	10 f0       	brcs	.+4      	; 0x100 <__udivmodhi4_ep>
+  fc:	a6 1b       	sub	r26, r22
+  fe:	b7 0b       	sbc	r27, r23
+
+00000100 <__udivmodhi4_ep>:
+ 100:	88 1f       	adc	r24, r24
+ 102:	99 1f       	adc	r25, r25
+ 104:	5a 95       	dec	r21
+ 106:	a9 f7       	brne	.-22     	; 0xf2 <__udivmodhi4_loop>
+ 108:	80 95       	com	r24
+ 10a:	90 95       	com	r25
+ 10c:	bc 01       	movw	r22, r24
+ 10e:	cd 01       	movw	r24, r26
+ 110:	08 95       	ret
+
+00000112 <_exit>:
+ 112:	f8 94       	cli
+
+00000114 <__stop_program>:
+ 114:	ff cf       	rjmp	.-2      	; 0x114 <__stop_program>
